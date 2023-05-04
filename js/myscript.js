@@ -62,7 +62,7 @@ next.addEventListener(
             //aggiungo la classe active al nuovo elemento
             items[activeItem].classList.add('active');
 
-            //se sono all'ultimo elemento cliccando torno al primo (se lo faccio poi non va)
+            //se sono all'ultimo elemento cliccando torno al primo
         }else if(activeItem === (items.length - 1)) {
             //tolgo la classe active alla foto in corso
             items[activeItem].classList.remove('active');
@@ -81,7 +81,7 @@ const prev = document.querySelector('.fa-circle-arrow-down');
 prev.addEventListener(
     'click',
     function() {
-        //se non sono all'ultimo elemento
+        //se non sono al primo elemento
         if(activeItem > 0){
             //tolgo la classe active  
             items[activeItem].classList.remove('active');
@@ -90,7 +90,7 @@ prev.addEventListener(
             //aggiungo la classe active al nuovo elemento
             items[activeItem].classList.add('active');
 
-            //se sono all'ultimo elemento cliccando torno al primo 
+            //se sono al primo elemento vado all'ultimo 
         }else if(activeItem === 0){
             //tolgo la classe active  
             items[activeItem].classList.remove('active');

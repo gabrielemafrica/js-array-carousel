@@ -100,7 +100,7 @@ next.addEventListener(
             items[activeItem].classList.add('active');
             itemsLato[activeItem].classList.add('active');
 
-            //se sono all'ultimo elemento cliccando torno al primo (se lo faccio poi non va)
+            //se sono all'ultimo elemento cliccando torno al primo
         }else if(activeItem === (items.length - 1)) {
             //tolgo la classe active alla foto in corso
             items[activeItem].classList.remove('active');
