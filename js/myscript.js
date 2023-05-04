@@ -23,7 +23,7 @@ for (let i = 0; i < imgCarusel.length; i++) {
 
 // seleziono le immagini
 const items = document.querySelectorAll('img');
-
+console.log(items);
 //setto un indice per segnare l'item attivo al momento
 
 let activeItem = 0;
@@ -38,62 +38,67 @@ for (let i = 0; i < items.length; i++) {
 
     //aggiungo classe item
     items[i].classList.add('item');
-    
+
+    //aggiungo la classe active al primo
+    items[activeItem].classList.add('active');    
 }
 
-// mostro la prima immagine
-if (items) {
-    // seleziono le immagini
-    const items = document.querySelectorAll('img');
-
-    //aggiungo la classe active
-    items[activeItem].classList.add('active');
-}
     
+//funzionamento frecce
 
+//prendo la freccia su
+const next = document.querySelector('.fa-circle-arrow-up');
 
-
-/*
-//seleziono gli item per poterli gestire
-
-
-const items = document.querySelectorAll('.item');
-console.log(items); // é un nod list, interrogabile come un array
-
-//setto un indice per segnare l'item attivo al momento
-
-let activeItem = 0;
-
-//seleziono il next
-
-const next = document.querySelector('.next');
-
-//gestisco l'evento click sul next
-
+//al click
 next.addEventListener(
     'click',
-    function () {
+    function() {
         //se non sono all'ultimo elemento
         if(activeItem < (items.length - 1)){
-
-            //togli la classe active all'elemento attivo in quel momonto
+            //tolgo la classe active
             items[activeItem].classList.remove('active');
-            
-            //passare all'item successivo
-            activeItem = activeItem + 1;
-            //activeItem++;
-            
-            console.log(`nuovo valore di activeItem = ${activeItem}`);
-            
-            
-            //aggiungo la classe active
+            //passo al successivo
+            activeItem++;
+            //aggiungo la classe active al nuovo elemento
             items[activeItem].classList.add('active');
-            
-            //se sono all'ultimo elemento faccio sparire il next
 
-            if (activeItem === (items.length - 1)) {
-                next.classList.add('hidden');
-            }
+            //se sono all'ultimo elemento cliccando torno al primo (se lo faccio poi non va)
+        }else if(activeItem === (items.length - 1)) {
+            //tolgo la classe active alla foto in corso
+            items[activeItem].classList.remove('active');
+            // passo alla prima foto
+            // riporto activItem a zero
+            activeItem = 0;
+            // mostro di nuovo la prima img
+            items[activeItem].classList.add('active');
+        }    
+    }          
+)
+
+//prendo freccia giú
+const prev = document.querySelector('.fa-circle-arrow-down');
+//al click
+prev.addEventListener(
+    'click',
+    function() {
+        //se non sono all'ultimo elemento
+        if(activeItem > 0){
+            //tolgo la classe active  
+            items[activeItem].classList.remove('active');
+            //passo al precedente
+            activeItem--;
+            //aggiungo la classe active al nuovo elemento
+            items[activeItem].classList.add('active');
+
+            //se sono all'ultimo elemento cliccando torno al primo 
+        }else if(activeItem === 0){
+            //tolgo la classe active  
+            items[activeItem].classList.remove('active');
+            //passo all'ultimo
+            activeItem = items.length - 1;
+            //aggiungo la classe active al nuovo elemento
+            items[activeItem].classList.add('active');           
         }
     }
-)*/
+)    
+
