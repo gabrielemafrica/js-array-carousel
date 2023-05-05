@@ -22,7 +22,7 @@ for (let i = 0; i < imgCarusel.length; i++) {
 }
 
 // seleziono le immagini
-const items = document.querySelectorAll('img');
+const items = document.querySelectorAll('#container_carusel > img');
 console.log(items);
 //setto un indice per segnare l'item attivo al momento
 
